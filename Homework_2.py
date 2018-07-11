@@ -69,7 +69,7 @@
 # print(spis)
 
 
-
+# Normal, задача 4
 # a = [1, 2, 4, 5, 6, 2, 5, 2]
 # b = []
 # for i in a:
@@ -85,6 +85,16 @@
 #     if n == 1:
 #         c.append(i)
 # print(c)
+
+
+# Hard, задача 1
+# x = 2.5
+# eq = 'y = -12x + 11111140.2121'
+# eq_spis = eq.split(' ')
+# k = int(eq_spis[2][:3])
+# b = float(eq_spis[-1])
+# y = k * x + b
+# print(f'Для уравнения {eq} при х = {x}:  y = {y}')
 
 
 # Hard, задача 2
