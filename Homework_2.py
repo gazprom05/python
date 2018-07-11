@@ -33,7 +33,7 @@
 # print(e)
 
 
-# Normal, задача 1
+# Normal, задача  1
 # import math
 # spis = [2, -5, 8, 9, -25, 25, 4]
 # spis_1 = []
