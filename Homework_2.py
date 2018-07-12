@@ -6,7 +6,7 @@
 # print(fruits)
 # n = 1
 # for fruit in fruits:
-#     # print(f" {n}. {fruit}")
+#     print(f" {n}. {fruit}")
 #     print('{}. {}'.format(n, fruit))
 #     n += 1
 
