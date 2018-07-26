@@ -1,0 +1,97 @@
+# coding: 'UTF-8'
+
+# Easy
+# class TownCar:
+#     def __init__(self, speed, color, name, is_police = False):
+#         self.speed = speed
+#         self.color = color
+#         self. name = name
+#         self.is_police = is_police
+#
+#     def go(self):
+#         print('Машина поехала')
+#
+#     def stop(self):
+#         print('Машина остановилась')
+#
+#     def turn(self):
+#         print('Машина повернула ')
+#
+# class SportCar(TownCar):
+#     def __init__(self, speed, color, name, is_police = False):
+#         super().__init__(speed, color, name, is_police)
+#
+# class WorkCar(TownCar):
+#     def __init__(self, speed, color, name, is_police = False):
+#         super().__init__(speed, color, name, is_police)
+#
+# class PoliceCar(TownCar):
+#     def __init__(self, speed, color, name, is_police):
+#         super().__init__(speed, color, name,)
+#         self.is_police = True
+#
+#
+# towncar = TownCar('Гольф', 'Красный', 'Вася')
+# towncar.go()
+# sportcar = SportCar('Ламба', 'Желтая', 'Лена')
+# sportcar.turn()
+# workcar = WorkCar('Трактор', 'Синий', 'Тр-Тр Митя')
+# policecar = PoliceCar('Четырка', 'Белая', 'Коп', True)
+# policecar.stop()
+
+# Normal
+import random
+
+class Person:
+    def __init__(self, name, health, armor, damage):
+        self.name = name
+        self.health = health
+        self.armor = armor
+        self.damage = damage
+
+    def random_damage(self,enemy):
+        a = int((random.randint(enemy.armor,self.damage))/enemy.armor)
+        print(f'Игроку {enemy.name} нанесено урона  {a}')
+        return a
+
+    def attack(self, enemy, damage):
+        enemy.health -= damage
+        if enemy.health > 0:
+            print(f'У игрока {enemy.name} осталось {enemy.health} жизней')
+        else:
+            print(f'{enemy.name} сдох')
+
+
+class Player(Person):
+    def __init__(self, name, health, armor, damage):
+        super().__init__(name, health, armor, damage)
+
+
+class Enemy(Person):
+    def __init__(self, name, health, armor, damage):
+        super().__init__(name, health, armor, damage)
+
+
+enemy = Enemy('Вася', 100, 2, 100)
+player = Player('Аня', 100, 3, 100)
+
+
+class Game:
+    def __init__(self, enemy, player):
+        self.enemy = enemy
+        self.player = player
+        print('Test4')
+
+    def fight(self, enemy, player):
+        while player.health > 0 and enemy.health > 0:
+            player.attack(enemy, enemy.random_damage(enemy))
+            enemy.attack(player, player.random_damage(player))
+            print('\n')
+        else:
+            if enemy.health < 0:
+                print(f'{player.name} победил!!!')
+            else:
+                print(f'{enemy.name} победил!!!')
+
+
+Game.fight(player, player, enemy) # Оно работает, но почему требуется 3 аргумента и они в таком порядке?
